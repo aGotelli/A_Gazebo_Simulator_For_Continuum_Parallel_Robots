@@ -1,0 +1,4 @@
+launching:
+  package_name: cpr_physics
+  launch_files: [3PFR_spatial_limbs, 3PFR_spatial_distal_plate]
+number_of_limbs: 3

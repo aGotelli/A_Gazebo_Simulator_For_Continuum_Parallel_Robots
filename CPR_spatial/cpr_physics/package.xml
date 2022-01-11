@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cpr_physics</name>
+  <version>0.0.0</version>
+  <description>The cpr_physics package</description>
+
+  <maintainer email="Andrea.Gotelli@ls2n.fr">Gotelli</maintainer>
+  <license>MIT</license>
+  <author email="Andrea.Gotelli@ls2n.fr">Gotelli</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>cpr_messages</depend>
+  <depend>cpr_visual</depend>
+  <depend>cpr_geometry</depend>
+  <depend>dynamic_reconfigure</depend>
+  
+  <!--<depend>robot_messages</depend>-->
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

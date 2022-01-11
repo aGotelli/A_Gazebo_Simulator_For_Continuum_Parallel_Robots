@@ -1,0 +1,405 @@
+<?xml version="1.0"?>
+<!--
+MIT License
+
+Copyright (c) 2022 Gotelli Andrea
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+
+<sdf version="1.5" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<model name="distal_plate">
+
+    <!--    Distal plate properties     -->
+    <xacro:property name="mass" value="0.1" />
+    <xacro:property name="width" value="0.1" />
+    <xacro:property name="height" value="0.1" />
+    <xacro:property name="dp_radius" value="0.3" />
+    <xacro:property name="dp_length" value="0.1" />
+
+    <!--    Revolute joint properties   -->
+    <xacro:property name="radius" value="0.025" />
+    <xacro:property name="length" value="0.08" />
+
+    <!--    Define number of limbs in the robot -->
+    <xacro:arg name="number_of_limbs" default="0"/>
+
+    <!--    Define the position of the joint for the first limb     -->
+    <xacro:arg name="x1" default="0"/>
+    <xacro:arg name="y1" default="0.3"/>
+
+    <!--    Define the position of the joint for the second limb    -->
+    <xacro:arg name="x2" default="0.259808"/>
+    <xacro:arg name="y2" default="-0.15"/>
+
+    <!--    Define the position of the joint for the third limb     -->
+    <xacro:arg name="x3" default="-0.259808"/>
+    <xacro:arg name="y3" default="-0.15"/>
+
+    <!-- Model plugin for physics -->
+    <plugin name="cpr_physics_plugin" filename="libcpr_physics_plugin.so">
+        <number_of_limbs>$(arg number_of_limbs)</number_of_limbs>
+    </plugin>
+
+
+
+
+    <!-- Distal plate Link -->
+    <link name="distal_plate">
+        <pose>0 0 0 0 0 0</pose>
+        <collision name="distal_plate_collision">
+            <!--<origin xyz="0 0 0" rpy="0 0 0"/>-->
+            <geometry>
+                <cylinder>
+                    <radius>${dp_radius}</radius>
+                    <length>${dp_length}</length>
+                </cylinder>
+            </geometry>
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>0.00</mu>
+                        <mu2>0.00</mu2>
+                    </ode>
+                </friction>
+            </surface>
+        </collision>
+
+        <visual name="distal_plate_visual">
+            <!--<origin xyz="0 0 0" rpy="0 0 0"/>-->
+            <geometry>
+                <cylinder>
+                    <radius>${dp_radius}</radius>
+                    <length>${dp_length}</length>
+                </cylinder>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/GreyTransparent</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass}</mass>
+            <inertia>
+                <ixx>${mass*(3*dp_radius**2 + dp_length**2)/12}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass*(3*dp_radius**2 + dp_length**2)/12}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass*(dp_radius**2)/2}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+
+    <!-- Body of the first revolute joint   -->
+    <link name="limb1_joint_body">
+        <pose>$(arg x1) $(arg y1) 0 0 0 0</pose>
+        <collision name="limb1_joint_body_collision">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+        </collision>
+
+        <visual name="limb1_joint_body_visual">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Orange</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass*(3*radius**2 + length**2)/12}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass*(3*radius**2 + length**2)/12}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass*(radius**2)/2}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <!--    Actual representation of the first joint    -->
+    <joint name="limb1_joint" type="revolute">
+        <pose>0 0 0 0 0 0</pose>
+        <child>limb1_joint_body</child>
+        <parent>distal_plate</parent>
+        <axis>
+            <use_parent_model_frame>true</use_parent_model_frame>
+            <xyz>0 0 1</xyz>
+        </axis>
+    </joint>
+
+
+    <link name="limb1_attach_point">
+        <pose>$(arg x1) $(arg y1) -${length/2} 0 0 0</pose>
+        <collision name="limb1_attach_point_collision">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+        </collision>
+
+        <visual name="limb1_attach_point_visual">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Black</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass / 12.0 * 2*(width*width/400)}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass / 12.0 * 2*(width*width/400)}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass / 12.0 * 2*(width*width/400)}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <joint name="fix_rod1" type="fixed">
+        <child>limb1_attach_point</child>
+        <parent>limb1_joint_body</parent>
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </joint>
+
+
+    <!-- Body of the second revolute joint   -->
+    <link name="limb2_joint_body">
+        <pose>$(arg x2) $(arg y2) 0 0 0 0</pose>
+        <collision name="limb2_joint_body_collision">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+        </collision>
+
+        <visual name="limb2_joint_body_visual">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Orange</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass*(3*radius**2 + length**2)/12}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass*(3*radius**2 + length**2)/12}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass*(radius**2)/2}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <!--    Actual representation of the first joint    -->
+    <joint name="limb2_joint" type="revolute">
+        <pose>0 0 0 0 0 0</pose>
+        <child>limb2_joint_body</child>
+        <parent>distal_plate</parent>
+        <axis>
+            <use_parent_model_frame>true</use_parent_model_frame>
+            <xyz>0 0 1</xyz>
+        </axis>
+    </joint>
+
+
+    <link name="limb2_attach_point">
+        <pose>$(arg x2) $(arg y2) -${length/2} 0 0 0</pose>
+        <collision name="limb2_attach_point_collision">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+        </collision>
+
+        <visual name="limb2_attach_point_visual">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Black</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass / 12.0 * 2*(width*width/400)}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass / 12.0 * 2*(width*width/400)}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass / 12.0 * 2*(width*width/400)}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <joint name="fix_rod2" type="fixed">
+        <child>limb2_attach_point</child>
+        <parent>limb2_joint_body</parent>
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </joint>
+
+
+    <!-- Body of the third revolute joint   -->
+    <link name="limb3_joint_body">
+        <pose>$(arg x3) $(arg y3) 0 0 0 0</pose>
+        <collision name="limb3_joint_body_collision">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+        </collision>
+
+        <visual name="limb3_joint_body_visual">
+            <geometry>
+                <cylinder>
+                    <radius>${radius}</radius>
+                    <length>${length}</length>
+                </cylinder>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Orange</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass*(3*radius**2 + length**2)/12}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass*(3*radius**2 + length**2)/12}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass*(radius**2)/2}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <!--    Actual representation of the first joint    -->
+    <joint name="limb3_joint" type="revolute">
+        <pose>0 0 0 0 0 0</pose>
+        <child>limb3_joint_body</child>
+        <parent>distal_plate</parent>
+        <axis>
+            <use_parent_model_frame>true</use_parent_model_frame>
+            <xyz>0 0 1</xyz>
+        </axis>
+    </joint>
+
+
+    <link name="limb3_attach_point">
+        <pose>$(arg x3) $(arg y3) -${length/2} 0 0 0</pose>
+        <collision name="limb3_attach_point_collision">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+        </collision>
+
+        <visual name="limb3_attach_point_visual">
+            <geometry>
+                <box>
+                    <size>${width/20} ${width/20} ${height/20}</size>
+                </box>
+            </geometry>
+            <material>
+               <script>
+                  <uri>file://media/materials/scripts/gazebo.material</uri>
+                  <name>Gazebo/Black</name>
+               </script>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass>${mass/100}</mass>
+            <inertia>
+                <ixx>${mass / 12.0 * 2*(width*width/400)}</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>${mass / 12.0 * 2*(width*width/400)}</iyy>
+                <iyz>0</iyz>
+                <izz>${mass / 12.0 * 2*(width*width/400)}</izz>
+            </inertia>
+        </inertial>
+    </link>
+
+    <joint name="fix_rod3" type="fixed">
+        <child>limb3_attach_point</child>
+        <parent>limb3_joint_body</parent>
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </joint>
+
+
+
+</model>
+</sdf>

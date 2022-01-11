@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+MIT License
+
+Copyright (c) 2022 Gotelli Andrea
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+
+
+<launch>
+
+    <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+        <arg name="limb_number" value="1"/>
+        <arg name="x" value="0.25"/>
+        <arg name="y" value="0.0"/>
+        <arg name="roll" value="1.57079632679"/>
+        <arg name="pitch" value="0.0"/>
+        <arg name="yaw" value="3.14159265359"/>
+        <arg name="a_roll"  default="-1.57079632679"/>
+        <arg name="a_pitch" default="-3.14159265359"/>
+    </include>
+
+
+    <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+        <arg name="limb_number" value="6"/>
+        <arg name="x" value="0.25"/>
+        <arg name="y" value="0.0"/>
+        <arg name="roll" value="1.57079632679"/>
+        <arg name="pitch" value="0.0"/>
+        <arg name="yaw" value="0.0"/>
+        <arg name="a_roll"  default="-1.57079632679"/>
+        <arg name="a_pitch" default="0.0"/>
+    </include>
+
+   <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+        <arg name="limb_number" value="2"/>
+        <arg name="x" value="-0.125"/>
+        <arg name="y" value="0.216506"/>
+        <arg name="roll" value="1.57079632679"/>
+        <arg name="pitch" value="0.0"/>
+        <arg name="yaw" value="2.0944"/>
+        <arg name="a_roll"  default="-1.57079632679"/>
+        <arg name="a_pitch" default="0.0"/>
+    </include>
+
+    <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+        <arg name="limb_number" value="3"/>
+        <arg name="x" value="-0.125"/>
+        <arg name="y" value="0.216506"/>
+        <arg name="roll" value="1.57079632679"/>
+        <arg name="pitch" value="0.0"/>
+        <arg name="yaw" value="5.23598775598"/>
+        <arg name="a_roll"  default="-1.57079632679"/>
+        <arg name="a_pitch" default="0.0"/>
+    </include>
+
+    <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+         <arg name="limb_number" value="4"/>
+         <arg name="x" value="-0.125"/>
+         <arg name="y" value="-0.216506"/>
+         <arg name="roll" value="1.57079632679"/>
+         <arg name="pitch" value="0.0"/>
+         <arg name="yaw" value="-2.0944"/>
+         <arg name="a_roll"  default="-1.57079632679"/>
+         <arg name="a_pitch" default="0.0"/>
+     </include>
+
+     <include file="$(find cpr_physics)/launch/6RFS/spawn_limb.launch">
+         <arg name="limb_number" value="5"/>
+         <arg name="x" value="-0.125"/>
+         <arg name="y" value="-0.216506"/>
+         <arg name="roll" value="1.57079632679"/>
+         <arg name="pitch" value="0.0"/>
+         <arg name="yaw" value="1.0471975512"/>
+         <arg name="a_roll"  default="-1.57079632679"/>
+         <arg name="a_pitch" default="0.0"/>
+     </include>
+
+</launch>
