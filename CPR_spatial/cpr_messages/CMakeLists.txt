@@ -50,7 +50,7 @@ generate_messages(
 ###################################
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES robot_messages
+#  LIBRARIES cpr_messages
   CATKIN_DEPENDS geometry_msgs message_runtime
 #  DEPENDS system_lib
 )
