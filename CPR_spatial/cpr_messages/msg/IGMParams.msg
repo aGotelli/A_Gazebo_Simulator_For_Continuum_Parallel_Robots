@@ -1,0 +1,2 @@
+geometry_msgs/Pose distal_plate_pose
+geometry_msgs/Wrench distal_plate_wrench
