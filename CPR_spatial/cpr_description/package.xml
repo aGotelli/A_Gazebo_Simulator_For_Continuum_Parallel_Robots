@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cpr_description</name>
+  <version>0.1.0</version>
+  <description>The cpr_description package</description>
+
+  <maintainer email="Andrea.Gotelli@ls2n.fr">Gotelli</maintainer>
+  <license>MIT</license>
+  <author email="Andrea.Gotelli@ls2n.fr">Gotelli</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--<depend>robot_physics</depend>-->
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
