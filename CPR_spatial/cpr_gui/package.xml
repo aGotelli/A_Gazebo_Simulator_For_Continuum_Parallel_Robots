@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cpr_gui</name>
+  <version>0.1.0</version>
+  <description>This package contains the sources to generate a semantic GUI for
+  the user to control the robot. The GUI is created with Qt Widgets.
+  This package implement a stucture different from common ROS package.
+  Its structure follows the suggestions given at :
+  https://wiki.qt.io/SUBDIRS_-_handling_dependencies
+  as multiple modules needs to be created. </description>
+
+  <maintainer email="Andrea.Gotelli@ls2n.fr">Gotelli</maintainer>
+  <license>MIT</license>
+  <author email="Andrea.Gotelli@ls2n.fr">Gotelli</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>cpr_messages</depend>
+  <depend>urdf</depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
