@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <!--    Define position of the first revolute joint -->
+    <arg name="x1" value="-0.2"/>
+    <arg name="y1" value="0.0"/>
+
+    <!--    Define position of the second revolute joint -->
+    <arg name="x2" value="0.2"/>
+    <arg name="y2" value="0.0"/>
+
+
+    <!--    Define position of the extensible limb joint -->
+    <arg name="x3" value="0.0"/>
+    <arg name="y3" value="0.0"/>
+    <arg name="theta" value="1.570796327"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="1"/>
+        <arg name="x" value="$(arg x1)"/>
+        <arg name="y" value="$(arg y1)"/>
+    </include>
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="2"/>
+        <arg name="x" value="$(arg x2)"/>
+        <arg name="y" value="$(arg y3)"/>
+    </include>
+
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="3"/>
+        <arg name="x" value="$(arg x3)"/>
+        <arg name="y" value="$(arg y3)"/>
+        <arg name="yaw" value="$(arg theta)"/>
+        <arg name="base_joint_type" default="fixed"/>
+        <arg name="load_control" default="false"/>
+    </include>
+
+</launch>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="number_of_limbs" value="3" />
+    <param name="limb_name_prefix" type="string" value="limb" />
+    <param name="robot_name" type="string" value="3RR_robot" />
+    <param name="number_of_limbs" type="int" value="$(arg number_of_limbs)" />
+
+
+    <!--    Define initial position of the distal plate -->
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.0"/>
+
+    <!-- Create robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find robot_physics)/launch/3RR/distal_plate.sdf.xacro' number_of_limbs:=$(arg number_of_limbs)"/>
+
+    <!-- spawn model inside Gazebo -->
+    <node name="spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -model distal_plate -param robot_description -x $(arg x) -y $(arg y) -z 0.0 -R 0  -P 0 -Y 0"/>
+
+    <rosparam file="$(find robot_physics)/launch/3RR/robot_config.yaml" command="load"/>
+
+
+</launch>

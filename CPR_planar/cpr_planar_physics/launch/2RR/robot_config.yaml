@@ -1,0 +1,19 @@
+launching:
+  package_name: robot_physics
+  launch_files: [2RR_limbs.launch, 2RR_distal_plate.launch]
+number_of_limbs: 2
+#initial_guess : [0.0752245,  2.11201, 0.0892685,       #[n10x, n10y, m10z]
+#                  0.791652, -1.06258,  0.326752,  #[n20x, n20y, m20z]
+#                 -0.866929, -1.04932, -0.299138,   #[n30x, n30y, m30z]
+#                  -2.05246,-0.481525,  0.447793]   #[q1, q2, q3]
+#initial_guess : [ 0.878843, 0.0, -0.696618, #[n10x, n10y, m10z]
+#                 -0.878843, 0.0,  0.696618, #[n20x, n20y, m20z]
+#                  1.27254, -1.27254]   #[q1, q2, q3]
+
+rod:
+    E: 200e9
+    G: 80e9
+    radius: 0.001
+    L: 1.0
+    ds: 0.005
+

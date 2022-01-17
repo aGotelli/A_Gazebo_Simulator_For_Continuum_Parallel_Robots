@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<launch>
+
+
+
+
+
+
+    <!--    Define initial position of the distal plate -->
+    <!--<arg name="x" value="0.4358885"/>
+    <arg name="y" value="0.5187972"/>
+    <arg name="theta" value="-1.11321"/>-->
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="0.6"/>
+    <arg name="theta" value="0.0"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <arg name="number_of_limbs" value="3" />
+    <arg name="robot_name" value="my_robot" />
+    <param name="limb_name_prefix" type="string" value="limb" />
+<!--    <param name="robot_name" type="string" value="my_robot" />-->
+    <param name="number_of_limbs" type="int" value="$(arg number_of_limbs)" />
+
+    <!-- Create robot description -->
+    <param name="robot_description" command="$(find xacro)/xacro '$(find robot_physics)/launch/$(arg robot_name)/distal_plate.sdf.xacro' number_of_limbs:=$(arg number_of_limbs)"/>
+
+    <!-- spawn model inside Gazebo -->
+    <node name="spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -model distal_plate -param robot_description -x $(arg x) -y $(arg y) -z 0.0 -R 0  -P 0 -Y $(arg theta)"/>
+
+
+    <rosparam file="$(find robot_physics)/launch/$(arg robot_name)/robot_config.yaml" command="load"/>
+</launch>

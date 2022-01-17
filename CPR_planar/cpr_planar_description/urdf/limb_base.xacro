@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<!--
+MIT License
+
+Copyright (c) 2022 Gotelli Andrea
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+
+
+
+<!-- Revolute-Revolute Manipulator -->
+<robot name="robot_limb" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+    <!-- Base Joint Body Properties -->
+    <xacro:arg name="mass"      default="0.1" />
+    <xacro:arg name="widthx"    default="0.1" />
+    <xacro:arg name="widthy"    default="0.05" />
+    <xacro:arg name="height"    default="0.05" />
+
+    <!-- 2D Pose Of The Base Joint -->
+    <xacro:arg name="x" default="0.0"/>
+    <xacro:arg name="y" default="0.0"/>
+    <xacro:arg name="yaw" default="0.0"/>
+
+    <!-- Base Joint Attach Point Properties -->
+    <xacro:arg name="a_mass"      default="0.001" />
+    <xacro:arg name="a_widthx"    default="0.01" />
+    <xacro:arg name="a_widthy"    default="0.01" />
+    <xacro:arg name="a_height"    default="0.01" />
+
+    <!-- 2D Pose Of Attach Point wrt The Base Joint -->
+<!--    <xacro:arg name="a_x" default="0.0"/>
+    <xacro:arg name="a_y" default="0.0"/>
+    <xacro:arg name="yaw" default="0.0"/>-->
+
+
+    <!-- Base Joint Type -->
+    <xacro:arg name="base_joint_type"    default="revolute" />
+
+
+    <xacro:property name="mass"     value="$(arg mass)" />
+    <xacro:property name="widthx"   value="$(arg widthx)" />
+    <xacro:property name="widthy"   value="$(arg widthy)" />
+    <xacro:property name="height"   value="$(arg height)" />
+
+    <xacro:property name="a_mass" value="$(arg a_mass)" />
+    <xacro:property name="a_widthx" value="$(arg a_widthx)" />
+    <xacro:property name="a_widthy" value="$(arg a_widthy)" />
+    <xacro:property name="a_height" value="$(arg a_height)" />
+
+    <xacro:property name="base_joint_type"  value="$(arg base_joint_type)" />
+
+
+
+
+
+
+    <!-- Constants for joint dimensions -->
+    <xacro:property name="mass" value="0.1" />
+    <xacro:property name="width" value="0.05" />
+    <xacro:property name="height" value="0.1" />
+
+    <!-- Position of the base joint -->
+    <xacro:arg name="x" default="0.0"/>
+    <xacro:arg name="y" default="0.0"/>
+
+
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+
+
+
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+    <link name="world"/>
+
+    <!-- Base Link -->
+    <link name="base_joint_body">
+        <collision name="base_joint_body_collision">
+            <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${widthx} ${widthy} ${height}"/>
+            </geometry>
+        </collision>
+
+        <visual name="base_joint_body_visual">
+            <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+            <geometry>
+                <box size="${widthx} ${widthx} ${height}"/>
+            </geometry>
+            <material name="orange"/>
+        </visual>
+
+        <inertial>
+        <origin xyz="0 0 ${height/2}" rpy="0 0 0"/>
+        <mass value="${mass}"/>
+        <inertia
+        ixx="${mass / 12.0 * (widthx*widthx + height*height)}" ixy="0.0" ixz="0.0"
+        iyy="${mass / 12.0 * (height*height + widthy*widthy)}" iyz="0.0"
+        izz="${mass / 12.0 * (widthx*widthx + widthy*widthy)}"/>
+        </inertial>
+    </link>
+
+    <!-- Link1 Properties-->
+    <gazebo reference="base_joint_body">
+        <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <material name="orange">
+        <color rgba="${255/255} ${108/255} ${10/255} 1.0"/>
+    </material>
+
+
+    <joint name="base_joint" type="${base_joint_type}">
+        <parent link="world"/>
+        <child link="base_joint_body"/>
+        <origin xyz="$(arg x) $(arg y) 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="attach_point">
+        <collision name="attach_point_collision">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${a_widthx} ${a_widthy} ${a_height}"/>
+            </geometry>
+        </collision>
+
+        <visual name="attach_point_visual">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="${a_widthx} ${a_widthy} ${a_height}"/>
+            </geometry>
+        </visual>
+
+        <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${a_mass}"/>
+        <inertia
+        ixx="${a_mass / 12.0 * (a_widthx*a_widthx + a_height*a_height)}" ixy="0.0" ixz="0.0"
+        iyy="${a_mass / 12.0 * (a_height*a_height + a_widthy*a_widthy)}" iyz="0.0"
+        izz="${a_mass / 12.0 * (a_widthx*a_widthx + a_widthy*a_widthy)}"/>
+        </inertial>
+    </link>
+
+    <gazebo reference="attach_point">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+
+    <joint name="fix_rod_to_joint" type="fixed">
+        <parent link="base_joint_body"/>
+        <child link="attach_point"/>
+        <origin xyz="0 ${widthx/2} ${height/2}" rpy="0 0 0"/>
+    </joint>
+
+<!-- Tell gazebo not to lump fixed joint togheter-->
+    <gazebo reference="fix_rod_to_joint">
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+
+    <transmission name="base_joint_transmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="base_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+</robot>
