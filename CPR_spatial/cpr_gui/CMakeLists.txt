@@ -60,48 +60,48 @@ include_directories(
 )
 
 #   Add a library with the definition of the generic widgets for control
-add_library(generic_controllers src/controllers/generic_panel.cpp
+add_library(${PROJECT_NAME}_generic_controllers src/controllers/generic_panel.cpp
                                 src/controllers/generic_controller.cpp)
-target_link_libraries(generic_controllers ${Qt5Widgets_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_generic_controllers ${Qt5Widgets_LIBRARIES})
 
 #   Add a library with the implementation of varius panel for controls
-add_library(control_panels  src/distal_plate_pose_panel/distal_plate_pose_panel.cpp
+add_library(${PROJECT_NAME}_control_panels  src/distal_plate_pose_panel/distal_plate_pose_panel.cpp
                             src/distal_plate_wrench_panel/distal_plate_wrench_panel.cpp
                             src/joints_control_panel/joints_control_panel.cpp
                             src/solver_options_panel/solver_options_panel.cpp)
-target_link_libraries(control_panels    generic_controllers
+target_link_libraries(${PROJECT_NAME}_control_panels    ${PROJECT_NAME}_generic_controllers
                                         ${Qt5Widgets_LIBRARIES}
                                         ${catkin_LIBRARIES})
-target_compile_definitions(control_panels PUBLIC ROS)
+target_compile_definitions(${PROJECT_NAME}_control_panels PUBLIC ROS)
 
 #   Add a library to handle the saving and load of the parameters vector
-add_library(parameters_vector_manager src/parameters_vector_manager/parameters_vector_loader.cpp
+add_library(${PROJECT_NAME}_parameters_vector_manager src/parameters_vector_manager/parameters_vector_loader.cpp
                                       src/parameters_vector_manager/parameters_vector_saving.cpp)
-target_link_libraries(parameters_vector_manager yaml-cpp ${Qt5Widgets_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_parameters_vector_manager yaml-cpp ${Qt5Widgets_LIBRARIES})
 
 #   Add a library to handle the dof selection for an underactuated robot
-add_library(dof_selection_window    src/dof_selection_window/basic_motion.cpp
+add_library(${PROJECT_NAME}_dof_selection_window    src/dof_selection_window/basic_motion.cpp
                                     src/dof_selection_window/dof_controller.cpp
                                     src/dof_selection_window/dof_selection_window.cpp)
-target_link_libraries(dof_selection_window ${Qt5Widgets_LIBRARIES} ${catkin_LIBRARIES})
-target_compile_definitions(dof_selection_window PUBLIC ROS)
+target_link_libraries(${PROJECT_NAME}_dof_selection_window ${Qt5Widgets_LIBRARIES} ${catkin_LIBRARIES})
+target_compile_definitions(${PROJECT_NAME}_dof_selection_window PUBLIC ROS)
 
 #   Add a library with the mainwindow utilities
-add_library(main_window_utils src/main_window/menubar.cpp)
-target_link_libraries(main_window_utils ${Qt5Widgets_LIBRARIES} ${catkin_LIBRARIES})
-target_compile_definitions(main_window_utils PUBLIC ROS)
+add_library(${PROJECT_NAME}_main_window_utils src/main_window/menubar.cpp)
+target_link_libraries(${PROJECT_NAME}_main_window_utils ${Qt5Widgets_LIBRARIES} ${catkin_LIBRARIES})
+target_compile_definitions(${PROJECT_NAME}_main_window_utils PUBLIC ROS)
 
-add_library(main_window src/main_window/main_window.cpp)
-target_link_libraries(main_window   main_window_utils
-                                    generic_controllers
-                                    control_panels
-                                    parameters_vector_manager
-                                    dof_selection_window
+add_library(${PROJECT_NAME}_main_window src/main_window/main_window.cpp)
+target_link_libraries(${PROJECT_NAME}_main_window   ${PROJECT_NAME}_main_window_utils
+                                    ${PROJECT_NAME}_generic_controllers
+                                    ${PROJECT_NAME}_control_panels
+                                    ${PROJECT_NAME}_parameters_vector_manager
+                                    ${PROJECT_NAME}_dof_selection_window
                                     yaml-cpp
                                     ${Qt5Widgets_LIBRARIES}
                                     ${catkin_LIBRARIES})
-target_compile_definitions(main_window PUBLIC ROS)
+target_compile_definitions(${PROJECT_NAME}_main_window PUBLIC ROS)
 
 #   Add executable for using the GUI
 add_executable(${PROJECT_NAME}_node src/cpr_gui.cpp)
-target_link_libraries(${PROJECT_NAME}_node main_window ${catkin_LIBRARIES} ${Qt5Widgets_LIBRARIES})
+target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME}_main_window ${catkin_LIBRARIES} ${Qt5Widgets_LIBRARIES})
