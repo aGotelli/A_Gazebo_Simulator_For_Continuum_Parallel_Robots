@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/andrea/QtCreator/latest/catkin/src/A-Gazebo-Simulator-for-Continuum-Parallel-Robots/robot_gui/src/main_window/icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs2">
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient981"
+       gradientUnits="userSpaceOnUse"
+       x="23.964931"
+       y="185.72655">
+      <meshrow
+         id="meshrow983">
+        <meshpatch
+           id="meshpatch985">
+          <stop
+             path="c 21.7084,0  43.4168,0  65.1251,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop987" />
+          <stop
+             path="c 0,21.7084  0,43.4168  0,65.1251"
+             style="stop-color:#0073de;stop-opacity:1"
+             id="stop989" />
+          <stop
+             path="c -21.7084,0  -43.4168,0  -65.1251,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop991" />
+          <stop
+             path="c 0,-21.7084  0,-43.4168  0,-65.1251"
+             style="stop-color:#0073de;stop-opacity:1"
+             id="stop993" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1017"
+       gradientUnits="userSpaceOnUse"
+       x="-118.89402"
+       y="145.4167">
+      <meshrow
+         id="meshrow1019">
+        <meshpatch
+           id="meshpatch1021">
+          <stop
+             path="c 11.435,0  22.8699,0  34.3049,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1023" />
+          <stop
+             path="c 0,11.7775  0,23.5551  0,35.3326"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1025" />
+          <stop
+             path="c -11.435,0  -22.8699,0  -34.3049,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1027" />
+          <stop
+             path="c 0,-11.7775  0,-23.5551  0,-35.3326"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1029" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1039"
+       gradientUnits="userSpaceOnUse"
+       x="62.905243"
+       y="143.24387">
+      <meshrow
+         id="meshrow1041">
+        <meshpatch
+           id="meshpatch1043">
+          <stop
+             path="c 9.34594,0  18.6919,0  28.0378,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1045" />
+          <stop
+             path="c 0,11.6502  0,23.3005  0,34.9507"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1047" />
+          <stop
+             path="c -9.34594,0  -18.6919,0  -28.0378,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1049" />
+          <stop
+             path="c 0,-11.6502  0,-23.3005  0,-34.9507"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1051" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1083"
+       gradientUnits="userSpaceOnUse"
+       x="33.455101"
+       y="143.65158"
+       gradientTransform="translate(-0.51234004)">
+      <meshrow
+         id="meshrow1085">
+        <meshpatch
+           id="meshpatch1087">
+          <stop
+             path="c 10.1613,0  20.3226,0  30.484,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1089" />
+          <stop
+             path="c 0,11.531  0,23.062  0,34.593"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1091" />
+          <stop
+             path="c -10.1613,0  -20.3226,0  -30.484,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1093" />
+          <stop
+             path="c 0,-11.531  0,-23.062  0,-34.593"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1095" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient1107"
+       gradientUnits="userSpaceOnUse"
+       x="31.722307"
+       y="210.92606">
+      <meshrow
+         id="meshrow1109">
+        <meshpatch
+           id="meshpatch1111">
+          <stop
+             path="c 5.78568,0  11.5714,0  17.357,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1113" />
+          <stop
+             path="c 0,2.53346  0,5.06693  0,7.60039"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1115" />
+          <stop
+             path="c -5.78568,0  -11.5714,0  -17.357,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1117" />
+          <stop
+             path="c 0,-2.53346  0,-5.06693  0,-7.60039"
+             style="stop-color:#000000;stop-opacity:1"
+             id="stop1119" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="239.20457"
+     inkscape:cy="313.34453"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-text-baseline="false"
+     inkscape:window-width="1368"
+     inkscape:window-height="836"
+     inkscape:window-x="1438"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:url(#meshgradient981);fill-opacity:1;stroke:none;stroke-width:0.62088591;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect847"
+       width="65.125145"
+       height="65.125145"
+       x="23.964931"
+       y="185.72655" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:49.50136185px;line-height:1.25;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:url(#meshgradient1083);stroke-width:1.23754489"
+       x="32.207981"
+       y="176.94899"
+       id="text821"
+       transform="scale(0.73774478,1.3554823)"><tspan
+         sodipodi:role="line"
+         x="32.207981"
+         y="176.94899"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:49.50136185px;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:url(#meshgradient1083);stroke-width:1.23754489"
+         id="tspan823">C</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:52.04983521px;line-height:1.25;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:url(#meshgradient1039);stroke-width:1.30128706"
+       x="62.742607"
+       y="177.54391"
+       id="text829"
+       transform="scale(0.73680397,1.3572131)"><tspan
+         sodipodi:role="line"
+         id="tspan827"
+         x="62.742607"
+         y="177.54391"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:52.04983521px;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:url(#meshgradient1039);stroke-width:1.30128706">P</tspan><tspan
+         sodipodi:role="line"
+         x="62.742607"
+         y="242.6062"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:52.04983521px;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:url(#meshgradient1039);stroke-width:1.30128706"
+         id="tspan831" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:52.61865997px;line-height:1.25;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:url(#meshgradient1017);stroke-width:1.31545365"
+       x="-119.10985"
+       y="180.09157"
+       id="text835"
+       transform="scale(-0.74472744,1.3427731)"><tspan
+         sodipodi:role="line"
+         id="tspan833"
+         x="-119.10985"
+         y="180.09157"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:52.61865997px;font-family:aakar;-inkscape-font-specification:'aakar, Medium';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:url(#meshgradient1017);stroke-width:1.31545365">R</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.11111069px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.34549049;stroke-opacity:1"
+       x="30.039925"
+       y="212.20212"
+       id="text839"
+       transform="scale(0.94181656,1.0617779)"><tspan
+         sodipodi:role="line"
+         id="tspan837"
+         x="30.039925"
+         y="212.20212"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.11111069px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke:none;stroke-width:0.34549049;stroke-opacity:1">++</tspan></text>
+  </g>
+</svg>

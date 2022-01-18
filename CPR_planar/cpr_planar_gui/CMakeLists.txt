@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(cpr_gui)
+project(cpr_planar_gui)
 set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Release)
+#set(CMAKE_BUILD_TYPE Debug)
 
 
 # Tell CMake to run moc when necessary:
@@ -34,7 +34,7 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
-  cpr_messages
+  cpr_planar_messages
   urdf
 )
 
@@ -43,7 +43,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES cpr_gui
+#  LIBRARIES robot_gui
   CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
@@ -103,5 +103,5 @@ target_link_libraries(${PROJECT_NAME}_main_window   ${PROJECT_NAME}_main_window_
 target_compile_definitions(${PROJECT_NAME}_main_window PUBLIC ROS)
 
 #   Add executable for using the GUI
-add_executable(${PROJECT_NAME}_node src/cpr_gui.cpp)
-target_link_libraries(${PROJECT_NAME}_node ${PROJECT_NAME}_main_window ${catkin_LIBRARIES} ${Qt5Widgets_LIBRARIES})
+add_executable(${PROJECT_NAME}_cpr_planar_gui src/cpr_planar_gui.cpp)
+target_link_libraries(${PROJECT_NAME}_cpr_planar_gui ${PROJECT_NAME}_main_window ${catkin_LIBRARIES} ${Qt5Widgets_LIBRARIES})

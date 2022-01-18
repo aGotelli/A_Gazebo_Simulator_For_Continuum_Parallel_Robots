@@ -1,0 +1,18 @@
+launching:
+  package_name: robot_physics
+  launch_files: [my_robot_limbs.launch, my_robot_distal_plate.launch]
+number_of_limbs: 3
+initial_guess: [-0.9089113, -1.117277, -0.06973024,     #[n01x, n01y, m01z]
+                -1.324551, 0.5772335, 0.7164593,        #[n02x, n02y, m02z]
+                2.233463, 0.5400437, -0.6025131,        #[n03x, n03y, m03z]
+                0.171531,   #q1
+                -3.141593,  #q2
+                0.6729]     #q3
+rod:
+  E: 200e9
+  G: 80e9
+  radius: 0.001
+  L: 1.0
+  ds: 0.005
+user_parameters_vectors: {initial_config: {parameters: [-0.9089113, -1.117277, -0.06973024, -1.324551, 0.5772335, 0.7164593, 2.233463, 0.5400437, -0.6025131, 0.171531, -3.141593, 0.6729, 0.4358885, 0.5187972, -1.11321], brief: "Use this to bring the robot back to the initial configuration."},
+  }

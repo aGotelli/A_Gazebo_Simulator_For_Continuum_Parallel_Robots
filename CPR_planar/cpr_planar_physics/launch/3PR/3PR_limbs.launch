@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="1"/>
+        <arg name="x" value="-0.2"/>
+        <arg name="y" value="1"/>
+        <arg name="yaw" value="4.1887902"/>
+        <arg name="base_joint_type" default="prismatic"/>
+    </include>
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="2"/>
+        <arg name="x" value="0.866025"/>
+        <arg name="y" value="-0.5"/>
+        <arg name="yaw" value="2.09439510239"/>
+        <arg name="base_joint_type" default="prismatic"/>
+    </include>
+
+    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+        <arg name="limb_number" value="3"/>
+        <arg name="x" value="-0.866025"/>
+        <arg name="y" value="-0.5"/>
+        <arg name="yaw" value="0.0"/>
+        <arg name="base_joint_type" default="prismatic"/>
+    </include>
+
+</launch>
