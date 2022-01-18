@@ -267,9 +267,6 @@ void RobotPhysics::InitializeRobotModel(Eigen::Affine3d &distal_plate_pose,
 
   underactuation_correction_ = underactuation_correction;
 
-  std::cout << "Underactuation correction matrix : " << std::endl;
-  std::cout << underactuation_correction_ << std::endl << std::endl << std::endl;
-
   //  Copy the robot limbs into the local instance
   robot_limbs_.reserve(number_of_limbs_);
   for(const auto& limb : robot_limbs)

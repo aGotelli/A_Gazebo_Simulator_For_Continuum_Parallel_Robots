@@ -113,8 +113,6 @@ void RobotModelPlugin::Load(physics::ModelPtr distal_plate, sdf::ElementPtr sdf)
 
   physics_core::Wrench initial_wrench;
   initial_wrench.force = Eigen::Vector3d(force.X(), force.Y(), force.Z());
-  std::cout << "Gravity: " << std::endl << world_->Gravity() << std::endl;
-  std::cout << "Wrench from gravity: " << std::endl << initial_wrench.force  << initial_wrench.torque << std::endl;
 
 
   std::vector<double> underactuation_vector(6);
