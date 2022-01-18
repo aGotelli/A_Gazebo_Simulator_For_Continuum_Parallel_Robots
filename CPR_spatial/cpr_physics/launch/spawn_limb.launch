@@ -42,7 +42,7 @@ SOFTWARE.
     <arg name="load_control" default="true"/>
 
     <!--    Type of base joint  -->
-    <arg name="base_joint_type" default="revolute"/>
+    <arg name="base_joint_type" default="none"/>
 
     <group ns="limb$(arg limb_number)">
         <!-- Load the URDF into the ROS Parameter Server -->

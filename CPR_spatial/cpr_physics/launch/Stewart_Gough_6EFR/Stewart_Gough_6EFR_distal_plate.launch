@@ -27,7 +27,7 @@ SOFTWARE.
 <launch>
 
     <arg name="number_of_limbs" value="6" />
-    <arg name="robot_name" value="Realistic_Stewart_Gough_6FFR" />
+    <arg name="robot_name" value="Stewart_Gough_6EFR" />
 
     <param name="limb_name_prefix" type="string" value="limb" />
     <param name="robot_name" type="string" value="$(arg robot_name)" />
