@@ -141,22 +141,11 @@ SOFTWARE.
         <origin xyz="0 0 ${height}" rpy="0 0 0"/>
     </joint>
 
-<!-- Tell gazebo not to lump fixed joint togheter-->
+    <!-- Tell gazebo not to lump fixed joint togheter-->
     <gazebo reference="fix_rod_to_joint">
         <preserveFixedJoint>true</preserveFixedJoint>
     </gazebo>
 
-
-    <!--<transmission name="base_joint_transmission">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="base_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="base_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>-->
 
 
 </robot>
