@@ -43,7 +43,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES robot_gui
+#  LIBRARIES cpr_gui
   CATKIN_DEPENDS roscpp
 #  DEPENDS system_lib
 )
