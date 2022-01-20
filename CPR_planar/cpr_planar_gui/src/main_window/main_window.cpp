@@ -47,7 +47,7 @@ MainWindow::MainWindow(const QApplication &app) :
 
     QString path_to_icon;
 #ifdef ROS
-    path_to_icon = QString::fromStdString( ros::package::getPath("robot_gui") );
+    path_to_icon = QString::fromStdString( ros::package::getPath("cpr_planar_gui") );
     path_to_icon.append( QString("/src/main_window/icon.png") );
 #else
     path_to_icon = app.applicationDirPath();
@@ -207,10 +207,10 @@ void MainWindow::LoadRobot()
 {
     QString path;
 #ifdef ROS
-    path = QString::fromStdString( ros::package::getPath("robot_physics") );
+    path = QString::fromStdString( ros::package::getPath("cpr_planar_physics") );
     path.append( QString("/launch") );
 #else
-    path = QString("/home/andrea/QtCreator/latest/catkin/src/A-Gazebo-Simulator-for-Continuum-Parallel-Robots/robot_physics/launch");
+    path = QString("/home/andrea/QtCreator/latest/catkin/src/A-Gazebo-Simulator-for-Continuum-Parallel-Robots/cpr_planar_physics/launch");
 #endif
 
     robot_file_name = QFileDialog::getOpenFileName(this,

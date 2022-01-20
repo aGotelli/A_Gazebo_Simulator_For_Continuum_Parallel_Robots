@@ -36,7 +36,7 @@ SOFTWARE.
     <link name="visual_dummy_body">
         <visual name="visual_dummy_body_visual">
             <!--    Load the visual plaugin -->
-            <plugin name="robot_visual_plugin" filename="librobot_visual_plugin.so">
+            <plugin name="cpr_planar_visual_plugin" filename="libcpr_planar_visual_plugin.so">
             </plugin>
             <geometry>
                 <sphere>
