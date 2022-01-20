@@ -1,3 +1,7 @@
+launching:
+  package_name: cpr_planar_physics
+  launch_files: [3ER_limbs.launch, 3ER_distal_plate.launch]
+number_of_limbs: 3
 initial_guess : [-0.338482, 2.00354, -0.128828,     #[n10x, n10y, m10z]
                  2.07496, -1.29491, -0.248296,      #[n20x, n20y, m20z]
                  -1.73648, -0.708638, -0.0592134,   #[n30x, n30y, m30z]

@@ -2,21 +2,21 @@
 <launch>
 
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="1"/>
         <arg name="x" value="0"/>
         <arg name="y" value="1"/>
         <arg name="base_joint_type" default="revolute"/>
     </include>
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="2"/>
         <arg name="x" value="0.866025"/>
         <arg name="y" value="-0.5"/>
         <arg name="base_joint_type" default="revolute"/>
     </include>
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="3"/>
         <arg name="x" value="-0.866025"/>
         <arg name="y" value="-0.5"/>

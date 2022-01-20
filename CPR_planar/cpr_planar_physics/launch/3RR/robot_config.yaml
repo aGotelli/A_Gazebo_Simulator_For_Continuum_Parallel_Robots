@@ -1,4 +1,7 @@
-#3RR_robot_settings:
+launching:
+  package_name: cpr_planar_physics
+  launch_files: [3RR_limbs.launch, 3RR_distal_plate.launch]
+number_of_limbs: 3
 initial_guess : [0.0752245, 2.11201, 0.0892685,       #[n10x, n10y, m10z]
                  0.791652, -1.06258, 0.326752,  #[n20x, n20y, m20z]
                  -0.866929, -1.04932, -0.299138,   #[n30x, n30y, m30z]

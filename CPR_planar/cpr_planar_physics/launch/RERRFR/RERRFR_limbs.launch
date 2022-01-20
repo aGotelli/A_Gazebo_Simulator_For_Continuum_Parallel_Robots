@@ -17,45 +17,25 @@
     <arg name="theta" value="1.570796327"/>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="1"/>
         <arg name="x" value="$(arg x1)"/>
         <arg name="y" value="$(arg y1)"/>
     </include>
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="2"/>
         <arg name="x" value="$(arg x2)"/>
         <arg name="y" value="$(arg y3)"/>
     </include>
 
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="3"/>
         <arg name="x" value="$(arg x3)"/>
         <arg name="y" value="$(arg y3)"/>
         <arg name="yaw" value="$(arg theta)"/>
-        <arg name="base_joint_type" default="fixed"/>
+        <arg name="base_joint_type" default="extensible"/>
         <arg name="load_control" default="false"/>
     </include>
 

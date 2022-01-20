@@ -13,7 +13,7 @@
 
     <!-- Create robot description -->
     <param name="robot_description" command="$(find xacro)/xacro
-                '$(find robot_physics)/launch/2RR/distal_plate.sdf.xacro'
+                '$(find cpr_planar_physics)/launch/2RR/distal_plate.sdf.xacro'
                 number_of_limbs:=$(arg number_of_limbs)"/>
 
     <!-- spawn model inside Gazebo -->
@@ -31,6 +31,6 @@
                 -P 0
                 -Y 0"/>
 
-    <rosparam file="$(find robot_physics)/launch/2RR/robot_config.yaml" command="load"/>
+    <rosparam file="$(find cpr_planar_physics)/launch/2RR/robot_config.yaml" command="load"/>
 
 </launch>

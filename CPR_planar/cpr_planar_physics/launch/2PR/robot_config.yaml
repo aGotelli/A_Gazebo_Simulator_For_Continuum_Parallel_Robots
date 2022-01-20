@@ -1,0 +1,4 @@
+launching:
+  package_name: cpr_planar_physics
+  launch_files: [2PR_limbs.launch, 2PR_distal_plate.launch]
+number_of_limbs: 2

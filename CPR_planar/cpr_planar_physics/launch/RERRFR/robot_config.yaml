@@ -1,6 +1,6 @@
 launching:
-  package_name: robot_physics
-  launch_files: [my_robot_limbs.launch, my_robot_distal_plate.launch]
+  package_name: cpr_planar_physics
+  launch_files: [RERRFR_limbs.launch, RERRFR_distal_plate.launch]
 number_of_limbs: 3
 initial_guess: [-0.9089113, -1.117277, -0.06973024,     #[n01x, n01y, m01z]
                 -1.324551, 0.5772335, 0.7164593,        #[n02x, n02y, m02z]

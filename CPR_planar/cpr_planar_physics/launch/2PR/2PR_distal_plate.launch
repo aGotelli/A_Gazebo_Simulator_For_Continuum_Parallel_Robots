@@ -11,7 +11,7 @@
     <arg name="y" value="0.8"/>
 
     <!-- Create robot description -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find robot_physics)/launch/2PR/distal_plate.sdf.xacro' number_of_limbs:=$(arg number_of_limbs)"/>
+    <param name="robot_description" command="$(find xacro)/xacro '$(find cpr_planar_physics)/launch/2PR/distal_plate.sdf.xacro' number_of_limbs:=$(arg number_of_limbs)"/>
 
     <!-- spawn model inside Gazebo -->
     <node name="spawner" pkg="gazebo_ros" type="spawn_model" output="screen" args="-sdf -model distal_plate -param robot_description -x $(arg x) -y $(arg y) -z 0.0 -R 0  -P 0 -Y 0"/>

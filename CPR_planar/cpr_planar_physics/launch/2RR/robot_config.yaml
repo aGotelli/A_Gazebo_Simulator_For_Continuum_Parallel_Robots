@@ -1,5 +1,5 @@
 launching:
-  package_name: robot_physics
+  package_name: cpr_planar_physics
   launch_files: [2RR_limbs.launch, 2RR_distal_plate.launch]
 number_of_limbs: 2
 #initial_guess : [0.0752245,  2.11201, 0.0892685,       #[n10x, n10y, m10z]

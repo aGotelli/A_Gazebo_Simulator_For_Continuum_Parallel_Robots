@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <launch>
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="1"/>
         <arg name="x" value="-0.2"/>
         <arg name="yaw" value="1.57"/>
         <arg name="base_joint_type" default="prismatic"/>
     </include>
 
-    <include file="$(find robot_physics)/launch/spawn_limb.launch">
+    <include file="$(find cpr_planar_physics)/launch/spawn_limb.launch">
         <arg name="limb_number" value="2"/>
         <arg name="x" value="0.2"/>
         <arg name="yaw" value="1.57"/>

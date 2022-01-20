@@ -23,7 +23,7 @@
     <xacro:arg name="y2" default="0"/>
 
     <!-- Model plugin for physics -->
-    <plugin name="robot_physics_plugin" filename="librobot_physics_plugin.so">
+    <plugin name="cpr_planar_physics_plugin" filename="libcpr_planar_physics_plugin.so">
         <number_of_limbs>$(arg number_of_limbs)</number_of_limbs>
     </plugin>
 
