@@ -21,7 +21,7 @@
     <xacro:arg name="x2" default="0.15"/>
     <xacro:arg name="y2" default="0"/>
 
-    <!--    Define the position of the joint for the second limb    -->
+    <!--    Define the position of the joint for the third limb    -->
     <xacro:arg name="x3" default="0"/>
     <xacro:arg name="y3" default="0"/>
 
@@ -149,7 +149,7 @@
             </geometry>
         </collision>
 
-        <visual name="limb1_attach_point_visual">
+        <!--<visual name="limb1_attach_point_visual">
             <geometry>
                 <box>
                     <size>${width_x/20} ${width_x/20} ${height/20}</size>
@@ -161,7 +161,7 @@
                   <name>Gazebo/Black</name>
                </script>
             </material>
-        </visual>
+        </visual>-->
 
         <inertial>
             <mass>${mass/100}</mass>
@@ -245,7 +245,7 @@
             </geometry>
         </collision>
 
-        <visual name="limb2_attach_point_visual">
+<!--        <visual name="limb2_attach_point_visual">
             <geometry>
                 <box>
                     <size>${width_x/20} ${width_x/20} ${height/20}</size>
@@ -257,7 +257,7 @@
                   <name>Gazebo/Black</name>
                </script>
             </material>
-        </visual>
+        </visual>-->
 
         <inertial>
             <mass>${mass/100}</mass>
@@ -343,7 +343,7 @@
         </geometry>
     </collision>
 
-    <visual name="limb3_attach_point_visual">
+    <!--<visual name="limb3_attach_point_visual">
         <geometry>
             <box>
                 <size>${width_x/20} ${width_x/20} ${height/20}</size>
@@ -355,7 +355,7 @@
               <name>Gazebo/Black</name>
            </script>
         </material>
-    </visual>
+    </visual>-->
 
     <inertial>
         <mass>${mass/100}</mass>
